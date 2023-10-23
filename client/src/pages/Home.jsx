@@ -3,13 +3,13 @@ import { useQuery } from '@apollo/client';
 import  from ''; // add variable and path
 import  from ''; // add variable and path
 
-import { QUERY_THOUGHTS } from '../utils/queries';
+import { QUERY_THOUGHTS } from '../utils/queries'; // change to POST
 
 const Home = () => {
   const { loading, data } = useQuery(QUERY_THOUGHTS);
   const thoughts = data?.thoughts || [];
 
-// change ThoughtForm and Thoughtlist to our own specific variables
+// change ThoughtForm and Thoughtlist to POST
   return (
     <main>
       <div className="flex-row justify-center">

@@ -3,11 +3,11 @@ import { useQuery } from '@apollo/client';
 import  from ''; // add variable and path
 import  from ''; // add variable and path
 
-import { QUERY_THOUGHTS } from '../utils/queries'; // change to POST
+import { QUERY_POSTS } from '../utils/queries'; // change to POST
 
 const Home = () => {
-  const { loading, data } = useQuery(QUERY_THOUGHTS);
-  const thoughts = data?.thoughts || [];
+  const { loading, data } = useQuery(QUERY_POSTS);
+  const posts = data?.posts || [];
 
 // change ThoughtForm and Thoughtlist to POST
   return (
@@ -17,15 +17,15 @@ const Home = () => {
           className="col-12 col-md-10 mb-3 p-3"
           style={{ border: '1px dotted #1a1a1a' }}
         >
-          <ThoughtForm />
+          <PostForm />
         </div>
         <div className="col-12 col-md-8 mb-3">
           {loading ? (
             <div>Loading...</div>
           ) : (
-            <ThoughtList
-              thoughts={thoughts}
-              title="Some Feed for Thought(s)..."
+            <PostList
+              posts={posts}
+              title="Your host with the post(s)..."
             />
           )}
         </div>

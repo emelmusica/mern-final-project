@@ -9,18 +9,17 @@ This project will have functions such as logging in, viewing your profile, sign-
 This project will use Apollo Server to talk to Mongoose and React Router Dom in order to set up routing.
 This project deepened our knowledge of how a MERN stack operates.
 
-## Table of Contents (Optional)
+## Table of Contents
 
 If your README is long, add a table of contents to make it easy for users to find what they need.
 
-- [Installation](#installation)
+- [Website](#installation)
 - [Usage](#usage)
 - [Credits](#credits)
 - [License](#license)
 
-## Installation
+## Website (to be posted)
 
-The user must use npm run install in order to install npm packages and run npm run develop in order to get the app running.
 
 ## Usage  (For later)
 
@@ -32,12 +31,12 @@ To add a screenshot, create an `assets/images` folder in your repository and upl
 
 ## Credits
 
-Martin Lopez
-https://github.com/emelmusica
-Sanghun Yun
-https://github.com/tkdgns0630
-Edmond-Su
-https://github.com/Edmond-Su
+Martin Lopez <br />
+https://github.com/emelmusica <br /> 
+Sanghun Yun <br />
+https://github.com/tkdgns0630 <br />
+Edmond-Su <br />
+https://github.com/Edmond-Su <br />
 
 ## License
 

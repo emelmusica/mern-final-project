@@ -1,7 +1,7 @@
 import { useQuery } from '@apollo/client';
 
-import  from ''; // add variable and path
-import  from ''; // add variable and path
+import PostList from '../components/'; // add variable and path
+import PostForm from '../components/'; // add variable and path
 
 import { QUERY_POSTS } from '../utils/queries'; // change to POST
 

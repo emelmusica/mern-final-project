@@ -38,7 +38,7 @@ const client = new ApolloClient({
 function App() {
   return (
     <ApolloProvider client={client}>
-      <div className="flex-column justify-flex-start min-100-vh">
+      <div className="flex-column justify-flex-start min-100-vh bg-light">
         <Header />
         <div className="container">
           <Outlet />

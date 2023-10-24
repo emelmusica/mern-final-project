@@ -114,6 +114,46 @@ const resolvers = {
       }
       throw AuthenticationError;
     },
+
+    addPostLike: async (parent, { postId }, context) => {
+      if (context.user) {
+        const updatedPost = await Post.findOneAndUpdate(
+          { _id: postId },
+          {
+            $addToSet: {
+              likes: context.user.username,
+            },
+          },
+          {
+            new: true,
+            runValidators: true,
+          }
+        );
+  
+        return updatedPost;
+      }
+      throw new AuthenticationError('You need to be logged in!');
+    },
+    
+    removePostLike: async (parent, { postId }, context) => {
+      if (context.user) {
+        const updatedPost = await Post.findOneAndUpdate(
+          { _id: postId },
+          {
+            $pull: {
+              likes: context.user.username,
+            },
+          },
+          {
+            new: true,
+            runValidators: true,
+          }
+        );
+  
+        return updatedPost;
+      }
+      throw new AuthenticationError('You need to be logged in!');
+    },
   },
 };
 

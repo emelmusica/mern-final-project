@@ -1,9 +1,9 @@
 import { useQuery } from '@apollo/client';
 
-// import PostList from '../components/'; // add variable and path
-// import PostForm from '../components/'; // add variable and path
+import PostList from '../components/PostList'; // add variable and path
+import PostForm from '../components/PostForm'; // add variable and path
 
-// import { QUERY_POSTS } from '../utils/queries'; // change to POST
+import { QUERY_POSTS } from '../utils/queries'; // change to POST
 
 const Home = () => {
   const { loading, data } = useQuery(QUERY_POSTS);

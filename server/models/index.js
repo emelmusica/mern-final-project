@@ -1,6 +1,6 @@
 // utilise proper variables for this project
 
-const User = require('');
-const Post = require(''); // change Thought to POST? we shall discuss
+const User = require("./User");
+const Post = require("./Post"); 
 
 module.exports = { User, Post }; // change exports to proper models

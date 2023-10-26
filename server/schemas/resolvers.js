@@ -56,7 +56,7 @@ const resolvers = {
 
         await User.findOneAndUpdate(
           { _id: context.user._id },
-          { $addToSet: { post: post._id } }
+          { $addToSet: { posts: post._id } }
         );
 
         return post;
@@ -90,7 +90,7 @@ const resolvers = {
 
         await User.findOneAndUpdate(
           { _id: context.user._id },
-          { $pull: { post: post._id } }
+          { $pull: { posts: post._id } }
         );
 
         return post;

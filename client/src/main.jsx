@@ -6,7 +6,7 @@ import Home from "./pages/Home";
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
 import Profile from "./pages/Profile";
-import SinglePost from "./pages/SinglePost";
+// import SinglePost from "./pages/SinglePost";
 import ErrorPage from "./pages/ErrorPage";
 const router = createBrowserRouter([
   {

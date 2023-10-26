@@ -1,5 +1,9 @@
 import { Link } from 'react-router-dom';
 
+import { useMutation } from '@apollo/client';
+
+import { ADD_POST_LIKE } from '../../utils/mutations'
+
 const PostList = ({
   posts,
   title,
@@ -8,6 +12,12 @@ const PostList = ({
 }) => {
   if (!posts.length) {
     return <h3>No Posts Yet</h3>;
+  }
+
+  const [ addPostLike, { error }] = useMutation(ADD_POST_LIKE,);
+
+  function handlePostLike(postId) {
+    addPostLike({ variables: { postId } });
   }
 
   return (
@@ -49,9 +59,6 @@ const PostList = ({
         ))}
     </div>
   );
-  function handlePostLike(postId) {
-    addPostLike({ variables: { postId } });
-  }
 };
 
 export default PostList;

@@ -38,7 +38,26 @@ const postSchema = new Schema({
       },
     },
   ],
-});
+  likes: [
+    {
+      type: Schema.Types.ObjectId,
+      ref:'User'
+    }
+  ]
+},
+{
+  toJSON: {
+    virtuals: true,
+  },
+}
+);
+
+postSchema
+  .virtual('likesCount')
+  //Getter
+  .get(function () {
+    return this.likes.length;
+  })
 
 const Post = model("Post", postSchema);
 

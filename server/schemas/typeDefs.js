@@ -14,6 +14,7 @@ const typeDefs = `
     createdAt: String
     comments: [Comment]!
     likes: [String]!
+    likesCount: Int
   }
 
   type Comment {

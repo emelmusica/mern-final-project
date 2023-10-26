@@ -69,7 +69,7 @@ const Signup = () => {
                 />
                 <input
                   className="form-input"
-                  placeholder="******"
+                  placeholder="min 5 characters"
                   name="password"
                   type="password"
                   value={formState.password}

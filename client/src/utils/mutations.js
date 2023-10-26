@@ -35,6 +35,8 @@ export const ADD_POST = gql`
         _id
         commentText
       }
+      likes
+      likescount
     }
   }
 `;

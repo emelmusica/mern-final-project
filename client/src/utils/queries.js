@@ -22,6 +22,7 @@ export const QUERY_POSTS = gql`
       postText
       postAuthor
       createdAt
+      likescount
     }
   }
 `;
@@ -39,6 +40,8 @@ export const QUERY_SINGLE_POST = gql`
         commentAuthor
         createdAt
       }
+      likes
+      likescount
     }
   }
 `;
@@ -54,6 +57,7 @@ export const QUERY_ME = gql`
         postText
         postAuthor
         createdAt
+        likescount
       }
     }
   }

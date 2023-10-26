@@ -127,18 +127,19 @@ const resolvers = {
             $addToSet: {
               likes: context.user.username,
             },
+            $inc: { likesCount: 1 }, 
           },
           {
             new: true,
             runValidators: true,
           }
         );
-
+    
         return updatedPost;
       }
       throw new AuthenticationError("You need to be logged in!");
     },
-
+    
     removePostLike: async (parent, { postId }, context) => {
       if (context.user) {
         const updatedPost = await Post.findOneAndUpdate(
@@ -147,13 +148,14 @@ const resolvers = {
             $pull: {
               likes: context.user.username,
             },
+            $inc: { likesCount: -1 }, 
           },
           {
             new: true,
             runValidators: true,
           }
         );
-
+    
         return updatedPost;
       }
       throw new AuthenticationError("You need to be logged in!");

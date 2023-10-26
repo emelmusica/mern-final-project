@@ -43,20 +43,17 @@ const postSchema = new Schema({
       type: String
     }
   ]
-},
-{
+}, {
   toJSON: {
     virtuals: true,
   },
-}
-);
+});
 
 postSchema
   .virtual('likesCount')
-  //Getter
   .get(function () {
     return this.likes.length;
-  })
+  });
 
 const Post = model("Post", postSchema);
 

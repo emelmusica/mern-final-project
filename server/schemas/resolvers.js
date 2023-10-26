@@ -1,15 +1,17 @@
-const { User, Post } = require('../models');
-const { signToken, AuthenticationError } = require('../utils/auth');
+const { User, Post } = require("../models");
+const { signToken, AuthenticationError } = require("../utils/auth");
 
 const resolvers = {
   Query: {
     users: async () => {
+
       return User.find().populate('posts');
     },
     user: async (parent, { username }) => {
       return User.findOne({ username }).populate('posts');
+
     },
-    post: async (parent, { username }) => {
+    posts: async (parent, { username }) => {
       const params = username ? { username } : {};
       return Post.find(params).sort({ createdAt: -1 });
     },
@@ -18,7 +20,9 @@ const resolvers = {
     },
     me: async (parent, args, context) => {
       if (context.user) {
+
         return User.findOne({ _id: context.user._id }).populate('posts');
+
       }
       throw AuthenticationError;
     },
@@ -62,7 +66,7 @@ const resolvers = {
         return post;
       }
       throw AuthenticationError;
-      ('You need to be logged in!');
+      ("You need to be logged in!");
     },
     addComment: async (parent, { postId, commentText }, context) => {
       if (context.user) {
@@ -129,12 +133,12 @@ const resolvers = {
             runValidators: true,
           }
         );
-  
+
         return updatedPost;
       }
-      throw new AuthenticationError('You need to be logged in!');
+      throw new AuthenticationError("You need to be logged in!");
     },
-    
+
     removePostLike: async (parent, { postId }, context) => {
       if (context.user) {
         const updatedPost = await Post.findOneAndUpdate(
@@ -149,10 +153,10 @@ const resolvers = {
             runValidators: true,
           }
         );
-  
+
         return updatedPost;
       }
-      throw new AuthenticationError('You need to be logged in!');
+      throw new AuthenticationError("You need to be logged in!");
     },
   },
 };

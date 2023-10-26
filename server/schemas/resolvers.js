@@ -4,10 +4,12 @@ const { signToken, AuthenticationError } = require("../utils/auth");
 const resolvers = {
   Query: {
     users: async () => {
-      return User.find().populate("posts");
+
+      return User.find().populate('posts');
     },
     user: async (parent, { username }) => {
-      return User.findOne({ username }).populate("posts");
+      return User.findOne({ username }).populate('posts');
+
     },
     posts: async (parent, { username }) => {
       const params = username ? { username } : {};
@@ -18,7 +20,9 @@ const resolvers = {
     },
     me: async (parent, args, context) => {
       if (context.user) {
-        return User.findOne({ _id: context.user._id }).populate("posts");
+
+        return User.findOne({ _id: context.user._id }).populate('posts');
+
       }
       throw AuthenticationError;
     },
@@ -47,7 +51,7 @@ const resolvers = {
 
       return { token, user };
     },
-    addPost: async (parent, { postIdText }, context) => {
+    addPost: async (parent, { postText }, context) => {
       if (context.user) {
         const post = await Post.create({
           postText,

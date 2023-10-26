@@ -6,7 +6,7 @@ const cleanDB = require('./cleanDB');
 
 db.once('open', async () => {
   try {
-    await cleanDB('post', 'posts');
+    await cleanDB('Post', 'posts');
 
     await cleanDB('User', 'users');
 

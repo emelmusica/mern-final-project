@@ -126,8 +126,7 @@ const resolvers = {
           {
             $addToSet: {
               likes: context.user.username,
-            },
-            $inc: { likesCount: 1 }, 
+            }, 
           },
           {
             new: true,
@@ -147,8 +146,7 @@ const resolvers = {
           {
             $pull: {
               likes: context.user.username,
-            },
-            $inc: { likesCount: -1 }, 
+            }, 
           },
           {
             new: true,

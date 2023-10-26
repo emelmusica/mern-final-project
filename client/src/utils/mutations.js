@@ -54,3 +54,37 @@ export const ADD_COMMENT = gql`
     }
   }
 `;
+
+export const ADD_POST_LIKE = gql`
+  mutation addPostLike ($postId: ID!){
+    addPostLike(postId: $postId){
+      _id
+      postText
+      postAuthor
+      createdAt
+      comments {
+        _id
+        commentText
+        createdAt
+      }
+      likesCount
+    }
+  }
+`
+
+export const REMOVE_POST_LIKE = gql`
+  mutation removePostLike ($postId: ID!){
+    removePostLike(postId: $postId){
+      _id
+      postText
+      postAuthor
+      createdAt
+      comments {
+        _id
+        commentText
+        createdAt
+      }
+      likesCount
+    }
+  }
+`

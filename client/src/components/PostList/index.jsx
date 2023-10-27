@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 
 import { useMutation } from '@apollo/client';
 
-import { ADD_POST_LIKE } from '../../utils/mutations'
+import { ADD_POST_LIKE, REMOVE_POST_LIKE } from '../../utils/mutations'
 
 const PostList = ({
   posts,
@@ -15,6 +15,7 @@ const PostList = ({
   }
 
   const [ addPostLike, { error }] = useMutation(ADD_POST_LIKE,);
+  const [ removePostLike, { error }] = useMutation(REMOVE_POST_LIKE,);
 
   function handlePostLike(postId) {
     addPostLike({ variables: { postId } });

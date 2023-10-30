@@ -1,23 +1,18 @@
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
-import { useMutation } from '@apollo/client';
+import { useMutation } from "@apollo/client";
 
-import { ADD_POST_LIKE } from '../../utils/mutations'
+import { ADD_POST_LIKE, REMOVE_POST_LIKE } from '../../utils/mutations'
 
-const PostList = ({
-  posts,
-  title,
-  showTitle = true,
-  showUsername = true,
-}) => {
+const PostList = ({ posts, title, showTitle = true, showUsername = true }) => {
   if (!posts.length) {
     return <h3>No Posts Yet</h3>;
   }
 
-  const [ addPostLike, { error }] = useMutation(ADD_POST_LIKE,);
+  const [ addPostLike, { error }] = useMutation(ADD_POST_LIKE,); // create const for removepostlike
 
   function handlePostLike(postId) {
-    addPostLike({ variables: { postId } });
+    addPostLike({ variables: { postId } }); // create a handlepostunlike
   }
 
   return (
@@ -33,13 +28,13 @@ const PostList = ({
                   to={`/profiles/${post.postAuthor}`}
                 >
                   {post.postAuthor} <br />
-                  <span style={{ fontSize: '1rem' }}>
+                  <span style={{ fontSize: "1rem" }}>
                     had this post on {post.createdAt}
                   </span>
                 </Link>
               ) : (
                 <>
-                  <span style={{ fontSize: '1rem' }}>
+                  <span style={{ fontSize: "1rem" }}>
                     You had this post on {post.createdAt}
                   </span>
                 </>
@@ -55,6 +50,12 @@ const PostList = ({
               Like
             </button>
             <span> ❤️: {post.likesCount}</span>
+            <Link
+              className="btn btn-primary btn-block btn-squared"
+              to={`/posts/${post._id}`}
+            >
+              Comment
+            </Link>
           </div>
         ))}
     </div>

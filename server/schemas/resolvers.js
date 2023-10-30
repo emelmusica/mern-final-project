@@ -4,25 +4,21 @@ const { signToken, AuthenticationError } = require("../utils/auth");
 const resolvers = {
   Query: {
     users: async () => {
-
-      return User.find().populate('posts');
+      return User.find().populate("posts");
     },
     user: async (parent, { username }) => {
-      return User.findOne({ username }).populate('posts');
-
+      return User.findOne({ username }).populate("posts");
     },
     posts: async (parent, { username }) => {
       const params = username ? { username } : {};
       return Post.find(params).sort({ createdAt: -1 });
     },
-    post: async (parent, { postIdId }) => {
+    post: async (parent, { postId }) => {
       return Post.findOne({ _id: postId });
     },
     me: async (parent, args, context) => {
       if (context.user) {
-
-        return User.findOne({ _id: context.user._id }).populate('posts');
-
+        return User.findOne({ _id: context.user._id }).populate("posts");
       }
       throw AuthenticationError;
     },
@@ -70,7 +66,7 @@ const resolvers = {
     },
     addComment: async (parent, { postId, commentText }, context) => {
       if (context.user) {
-        return post.findOneAndUpdate(
+        return Post.findOneAndUpdate(
           { _id: postId },
           {
             $addToSet: {
@@ -126,19 +122,19 @@ const resolvers = {
           {
             $addToSet: {
               likes: context.user.username,
-            }, 
+            },
           },
           {
             new: true,
             runValidators: true,
           }
         );
-    
+
         return updatedPost;
       }
       throw new AuthenticationError("You need to be logged in!");
     },
-    
+
     removePostLike: async (parent, { postId }, context) => {
       if (context.user) {
         const updatedPost = await Post.findOneAndUpdate(
@@ -146,14 +142,14 @@ const resolvers = {
           {
             $pull: {
               likes: context.user.username,
-            }, 
+            },
           },
           {
             new: true,
             runValidators: true,
           }
         );
-    
+
         return updatedPost;
       }
       throw new AuthenticationError("You need to be logged in!");

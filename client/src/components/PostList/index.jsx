@@ -1,7 +1,5 @@
 import { Link } from "react-router-dom";
-
 import { useMutation } from "@apollo/client";
-
 import { ADD_POST_LIKE, REMOVE_POST_LIKE } from '../../utils/mutations'
 
 const PostList = ({ posts, title, showTitle = true, showUsername = true }) => {
@@ -9,12 +7,19 @@ const PostList = ({ posts, title, showTitle = true, showUsername = true }) => {
     return <h3>No Posts Yet</h3>;
   }
 
-  const [ addPostLike, { error }] = useMutation(ADD_POST_LIKE,);
-  const [ removePostLike, { error }] = useMutation(REMOVE_POST_LIKE,);
+  const [addPostLike, { error: likeError }] = useMutation(ADD_POST_LIKE);
+  const [removePostLike, { error: unlikeError }] = useMutation(REMOVE_POST_LIKE);
 
   function handlePostLike(postId) {
-    addPostLike({ variables: { postId } }); // create a handlepostunlike
+    console.log('Like button clicked for postId:', postId);
+    addPostLike({ variables: { postId } });
   }
+  
+  function handlePostUnlike(postId) {
+    console.log('Unlike button clicked for postId:', postId);
+    removePostLike({ variables: { postId } });
+  }
+  
 
   return (
     <div>
@@ -49,6 +54,12 @@ const PostList = ({ posts, title, showTitle = true, showUsername = true }) => {
               onClick={() => handlePostLike(post._id)}
             >
               Like
+            </button>
+            <button
+              className="btn btn-danger btn-block btn-squared"
+              onClick={() => handlePostUnlike(post._id)}
+            >
+              Unlike
             </button>
             <span> ❤️: {post.likesCount}</span>
             <Link

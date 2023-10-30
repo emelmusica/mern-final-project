@@ -46,4 +46,5 @@ MIT License
 
 ## Screenshot
 
-![MERN Social Media - Google Chrome 30_10_2023 20_54_42](https://github.com/tkdgns0630/Mern-Social-Media/assets/129707996/3a25b74a-fe61-4fb3-b130-7a72d19307e7)
+![MERN Social Media - Google Chrome 30_10_2023 22_07_48](https://github.com/tkdgns0630/Mern-Social-Media/assets/129707996/7e5a8fb6-f5d7-4990-8ac1-13c0b908e2b0)
+

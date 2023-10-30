@@ -14,12 +14,9 @@ const PostList = ({
     return <h3>No Posts Yet</h3>;
   }
 
-<<<<<<< HEAD
   const [ addPostLike, { error }] = useMutation(ADD_POST_LIKE,);
   const [ removePostLike, { error }] = useMutation(REMOVE_POST_LIKE,);
-=======
   const [ addPostLike, { error }] = useMutation(ADD_POST_LIKE,); // create const for removepostlike
->>>>>>> 99615f6aa3c83bcf0b1bd00c6149976919ecdacb
 
   function handlePostLike(postId) {
     addPostLike({ variables: { postId } }); // create a handlepostunlike

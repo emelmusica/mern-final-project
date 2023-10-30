@@ -11,7 +11,6 @@ const PostList = ({ posts, title, showTitle = true, showUsername = true }) => {
 
   const [ addPostLike, { error }] = useMutation(ADD_POST_LIKE,);
   const [ removePostLike, { error }] = useMutation(REMOVE_POST_LIKE,);
-  const [ addPostLike, { error }] = useMutation(ADD_POST_LIKE,); // create const for removepostlike
 
   function handlePostLike(postId) {
     addPostLike({ variables: { postId } }); // create a handlepostunlike

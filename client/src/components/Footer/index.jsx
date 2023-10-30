@@ -15,7 +15,7 @@ const Footer = () => {
           </button>
         )}
         <h4>
-          Made by the Mern Social Media team.
+          Made by the Socialize team.
         </h4>
       </div>
     </footer>

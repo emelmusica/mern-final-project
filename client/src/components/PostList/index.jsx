@@ -49,6 +49,8 @@ const PostList = ({ posts, title, showTitle = true, showUsername = true }) => {
             <div className="card-body bg-light p-2">
               <p>{post.postText}</p>
             </div>
+            <hr />
+            <span> ❤️: {post.likesCount}</span>
             <button
               className="btn btn-primary btn-block btn-squared"
               onClick={() => handlePostLike(post._id)}
@@ -61,7 +63,6 @@ const PostList = ({ posts, title, showTitle = true, showUsername = true }) => {
             >
               Unlike
             </button>
-            <span> ❤️: {post.likesCount}</span>
             <Link
               className="btn btn-primary btn-block btn-squared"
               to={`/posts/${post._id}`}

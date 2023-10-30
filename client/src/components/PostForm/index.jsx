@@ -57,8 +57,6 @@ const PostForm = () => {
             className={`m-0 ${
               characterCount === 280 || error ? 'text-danger' : ''
             }`} 
-            
-            // add one hundred million character limit on the cout ;p jk
           >
             Character Count: {characterCount}/280
           </p>

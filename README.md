@@ -25,11 +25,13 @@ https://mern-social-media1-ea68780e3ab2.herokuapp.com/
 
 ## Usage
 
-- Sign up from the top right button.
-- View your own profile by clicking on the profile on the top right.
-- Click on the post to view the profile of who created the post.
-- Click on a comment in order to comment on the post.  (Login required)
-- Click on like to like a post (Login required)
+- Login or Sign up using the top right buttons.
+- Once logged in you can view your own profile by clicking on the "*your username*'s profile" button on the top right.
+- Once logged in you can logout with the "Logout" button in the top right.
+- To make a post type what you would like to say into the text box and then click on the "Add Post" button to the right of the text box.
+- Click on the header of a post to view the profile of the user who created the post.
+- Click on the "comment" button in order to comment on a post.  (Login required)
+- Click on the "like" button to like a post. (Login required)
 
 ## Credits
 
